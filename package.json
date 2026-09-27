@@ -2,5 +2,9 @@
   "name": "programming",
   "private": true,
   "version": "0.0.0",
-  "packageManager": "pnpm@10.33.0"
+  "packageManager": "pnpm@10.33.0",
+  "scripts": {
+    "storybook": "pnpm --filter miloberry storybook",
+    "build-storybook": "pnpm --filter miloberry build-storybook"
+  }
 }
