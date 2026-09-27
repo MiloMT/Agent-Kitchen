@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { Tooltip } from "@/components/ui/tooltip"
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip"
+import { Button } from "@/components/ui/button"
 import { BaseStory } from "@/lib/create-story"
 
 const meta: Meta<any> = {
@@ -12,5 +13,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args: any) => <BaseStory Component={Tooltip} {...args} />,
+  render: (args: any) => (
+    <BaseStory Component={TooltipProvider} {...args}>
+      <Tooltip>
+        <TooltipTrigger render={<Button variant="outline" />}>Hover over me</TooltipTrigger>
+        <TooltipContent>Placeholder tooltip text.</TooltipContent>
+      </Tooltip>
+    </BaseStory>
+  ),
 }

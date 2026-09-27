@@ -1,4 +1,4 @@
-import type { ComponentType } from "react"
+import type { ComponentType, ReactNode } from "react"
 
 /**
  * Generic base story renderer for Miloberry component stories.
@@ -12,9 +12,11 @@ import type { ComponentType } from "react"
  */
 export function BaseStory({
   Component,
+  children,
   ...props
 }: {
   Component: ComponentType<any>
+  children?: ReactNode
 } & Record<string, unknown>) {
-  return <Component {...props} />
+  return <Component {...props}>{children}</Component>
 }

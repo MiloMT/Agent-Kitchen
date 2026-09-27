@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { Command } from "@/components/ui/command"
+import { Command, CommandInput, CommandList, CommandGroup, CommandItem } from "@/components/ui/command"
 import { BaseStory } from "@/lib/create-story"
 
 const meta: Meta<any> = {
@@ -12,5 +12,16 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args: any) => <BaseStory Component={Command} {...args} />,
+  render: (args: any) => (
+    <BaseStory Component={Command} className="max-w-md rounded-md border" {...args}>
+      <CommandInput placeholder="Type a command..." />
+      <CommandList>
+        <CommandGroup heading="Suggestions">
+          <CommandItem>Item one</CommandItem>
+          <CommandItem>Item two</CommandItem>
+          <CommandItem>Item three</CommandItem>
+        </CommandGroup>
+      </CommandList>
+    </BaseStory>
+  ),
 }

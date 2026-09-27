@@ -12,5 +12,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args: any) => <BaseStory Component={Calendar} {...args} />,
+  render: (args: any) => (
+    <BaseStory Component={Calendar} className="max-w-sm rounded-md border p-3" {...args} />
+  ),
 }

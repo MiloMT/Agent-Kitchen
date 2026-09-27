@@ -12,5 +12,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args: any) => <BaseStory Component={DirectionProvider} {...args} />,
+  render: (args: any) => (
+    <BaseStory Component={DirectionProvider} dir="rtl" {...args}>
+      <p className="max-w-md text-sm">Placeholder text rendered inside a right-to-left direction provider.</p>
+    </BaseStory>
+  ),
 }

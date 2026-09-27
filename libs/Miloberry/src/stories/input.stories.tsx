@@ -12,5 +12,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args: any) => <BaseStory Component={Input} {...args} />,
+  render: (args: any) => (
+    <BaseStory Component={Input} className="max-w-sm" placeholder="Placeholder text" {...args} />
+  ),
 }

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { Kbd } from "@/components/ui/kbd"
+import { Kbd, KbdGroup } from "@/components/ui/kbd"
 import { BaseStory } from "@/lib/create-story"
 
 const meta: Meta<any> = {
@@ -12,5 +12,10 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args: any) => <BaseStory Component={Kbd} {...args} />,
+  render: (args: any) => (
+    <BaseStory Component={KbdGroup} {...args}>
+      <Kbd>Ctrl</Kbd>
+      <Kbd>K</Kbd>
+    </BaseStory>
+  ),
 }

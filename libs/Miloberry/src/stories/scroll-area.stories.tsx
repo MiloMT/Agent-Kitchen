@@ -12,5 +12,13 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args: any) => <BaseStory Component={ScrollArea} {...args} />,
+  render: (args: any) => (
+    <BaseStory Component={ScrollArea} className="h-40 max-w-sm rounded-md border p-4" {...args}>
+      <p className="text-sm">Placeholder paragraph one.</p>
+      <p className="mt-2 text-sm">Placeholder paragraph two.</p>
+      <p className="mt-2 text-sm">Placeholder paragraph three.</p>
+      <p className="mt-2 text-sm">Placeholder paragraph four.</p>
+      <p className="mt-2 text-sm">Placeholder paragraph five.</p>
+    </BaseStory>
+  ),
 }

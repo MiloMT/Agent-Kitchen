@@ -12,5 +12,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args: any) => <BaseStory Component={Button} {...args} />,
+  render: (args: any) => (
+    <BaseStory Component={Button} {...args}>Placeholder button</BaseStory>
+  ),
 }
