@@ -43,6 +43,7 @@
     "storybook": "^10.6.0",
     "tailwindcss": "^4",
     "typescript": "^5",
+    "vite-tsconfig-paths": "^6.1.1",
     "vitest": "latest"
   },
   "peerDependencies": {
