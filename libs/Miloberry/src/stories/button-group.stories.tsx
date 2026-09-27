@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { ButtonGroup } from "@/components/ui/button-group"
+import { ButtonGroup, ButtonGroupSeparator } from "@/components/ui/button-group"
+import { Button } from "@/components/ui/button"
 import { BaseStory } from "@/lib/create-story"
 
 const meta: Meta<any> = {
@@ -12,5 +13,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args: any) => <BaseStory Component={ButtonGroup} {...args} />,
+  render: (args: any) => (
+    <BaseStory Component={ButtonGroup} {...args}>
+      <Button variant="outline">One</Button>
+      <Button variant="outline">Two</Button>
+      <ButtonGroupSeparator />
+      <Button variant="outline">Three</Button>
+    </BaseStory>
+  ),
 }

@@ -12,5 +12,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args: any) => <BaseStory Component={Progress} {...args} />,
+  render: (args: any) => (
+    <BaseStory Component={Progress} value={60} className="max-w-sm" {...args} />
+  ),
 }

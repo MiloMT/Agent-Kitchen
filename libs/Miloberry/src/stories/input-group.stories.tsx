@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { InputGroup } from "@/components/ui/input-group"
+import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput, InputGroupText } from "@/components/ui/input-group"
 import { BaseStory } from "@/lib/create-story"
 
 const meta: Meta<any> = {
@@ -12,5 +12,11 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args: any) => <BaseStory Component={InputGroup} {...args} />,
+  render: (args: any) => (
+    <BaseStory Component={InputGroup} className="max-w-sm" {...args}>
+      <InputGroupAddon><InputGroupText>https://</InputGroupText></InputGroupAddon>
+      <InputGroupInput placeholder="example.com" />
+      <InputGroupAddon><InputGroupButton>Go</InputGroupButton></InputGroupAddon>
+    </BaseStory>
+  ),
 }

@@ -12,5 +12,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args: any) => <BaseStory Component={Textarea} {...args} />,
+  render: (args: any) => (
+    <BaseStory Component={Textarea} className="max-w-sm" placeholder="Placeholder text" {...args} />
+  ),
 }
