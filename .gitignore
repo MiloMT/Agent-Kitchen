@@ -7,7 +7,12 @@ dist/
 build/
 coverage/
 *.log
+storybook-static/
+debug-storybook.log
 .env
 .env.*
 !.env.example
 .DS_Store
+
+*storybook.log
+storybook-static
