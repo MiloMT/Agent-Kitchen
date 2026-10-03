@@ -4,7 +4,7 @@
 
 This repository is a **pnpm monorepo** managed with [pnpm workspaces](https://pnpm.io/workspaces).
 
-- `apps/*` — application packages
+- `apps/*` — application packages (currently `apps/lint-playground`: a sample Task Board app for exploring strict lint setups, composed exclusively from Miloberry)
 - `libs/Miloberry` — custom React component library based on shadcn/ui
 
 ## Getting started
