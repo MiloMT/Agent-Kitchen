@@ -5,6 +5,8 @@
   "packageManager": "pnpm@10.33.0",
   "scripts": {
     "storybook": "pnpm --filter miloberry storybook",
-    "build-storybook": "pnpm --filter miloberry build-storybook"
+    "build-storybook": "pnpm --filter miloberry build-storybook",
+    "lint": "pnpm --filter lint-playground lint",
+    "typecheck": "pnpm -r typecheck"
   }
 }
