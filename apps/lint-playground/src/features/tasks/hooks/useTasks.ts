@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from "react"
 
 import { calculateTaskStats, createTask, filterTasks } from "../lib"
-import type { NewTaskInput, Task, TaskFilter, TaskStats } from "../lib"
+import type { NewTaskInput, Task, TaskFilter, TaskStats } from "../types"
 
 const createId = (): string => {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) {

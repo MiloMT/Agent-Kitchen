@@ -4,6 +4,7 @@ Completed work items, moved here from [`active-task-list.md`](./active-task-list
 Newest first.
 
 - `ARCH`: Feature anatomy standardized — every feature has `components/` (presentational), `hooks/` (imperative shell) and `lib/` (pure functional core), plus a per-feature `AGENTS.md` describing its business context
+- `ARCH`: Feature contract files — root-level `types.ts` (domain-restricted types) and `constants.ts` (domain constants/mappings) in every feature, acting as the high-level domain contract for agents and developers
 - `FEAT`: Jest + Testing Library unit testing — co-located `*.test.ts(x)` for every file in `features/` (pure lib tests, `renderHook` hook tests, component render/interaction tests), jsdom polyfills for Base UI
 - `LINT`: Naming conventions enforced via `eslint-plugin-check-file` — component files UpperCamelCase, everything else lowerCamelCase, with reserved names (index.ts, main.tsx, App.tsx, vite-env.d.ts, configs) exempt
 - `CHORE`: Comment policy adopted — no comments except JSDoc on public-interface functions; all explanatory content moved to AGENTS.md/docs

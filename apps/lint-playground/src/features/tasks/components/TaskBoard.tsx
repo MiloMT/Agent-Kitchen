@@ -19,7 +19,7 @@ import { AddTaskDialog } from "./AddTaskDialog"
 import { FILTERS } from "../constants"
 import { TaskCard } from "./TaskCard"
 import { useTasks } from "../hooks/useTasks"
-import type { TaskFilter } from "../lib"
+import type { TaskFilter } from "../types"
 
 export function TaskBoard(): ReactElement {
   const { tasks, filter, setFilter, addTask, toggleTask, removeTask, stats } = useTasks()

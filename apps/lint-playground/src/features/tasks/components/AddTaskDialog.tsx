@@ -21,7 +21,7 @@ import {
 import { Plus } from "lucide-react"
 
 import { PRIORITIES, PRIORITY_LABELS } from "../constants"
-import type { NewTaskInput, Priority } from "../lib"
+import type { NewTaskInput, Priority } from "../types"
 
 export interface AddTaskDialogProps {
   onAdd: (input: NewTaskInput) => void

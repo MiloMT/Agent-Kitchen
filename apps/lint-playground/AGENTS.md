@@ -2,13 +2,12 @@
 
 A sample React 19 + Vite + TypeScript app for exploring strict linting setups
 that enforce a particular way of structuring code — "make the easy code path
-the right way to code."
+the right way to code." The UI is composed exclusively from the Miloberry
+component library, and the app follows a strictly enforced Functional Core /
+Imperative Shell architecture.
 
-## The workspace at a glance
-
-- `libs/Miloberry` — custom React component library (shadcn/ui on Base UI). The only source of UI primitives; this app composes its entire UI from it.
-- `apps/lint-playground` — this app: a Task Board structured as Functional Core / Imperative Shell, wired up for heavy lint enforcement.
-- `src/features/<feature>/AGENTS.md` — per-feature business context. Read the relevant one before touching a feature.
+`src/features/<feature>/AGENTS.md` holds the per-feature business context.
+Read the relevant one before touching a feature.
 
 ## Commands
 
@@ -50,6 +49,19 @@ Each feature under `src/features/` has three subdirectories:
 - `hooks/` — the imperative shell: inputs/outputs contributing to the
   feature (state, I/O, ids, clocks); thin, delegating every rule to `lib/`.
 - `lib/` — the business functional core: pure functions only.
+
+At the feature root sit the two contract files:
+
+- `types.ts` — the feature's domain-restricted types. The single place where
+  the feature's domain model is declared; consumed by every layer of the
+  feature and re-exported through the public API.
+- `constants.ts` — the feature's domain-restricted constants and mappings
+  (including the one place where business values meet UI concerns, e.g.
+  priority → badge variant).
+
+Together they act as the higher-level feature contract: an agent (or
+developer) can read `types.ts` + `constants.ts` + `AGENTS.md` to understand
+the domain without reading a line of implementation.
 
 Each feature also exposes a public API via `index.ts` and carries its own
 `AGENTS.md` describing its business context. The folder architecture itself

@@ -1,4 +1,4 @@
-import type { Task, TaskStats } from "./types"
+import type { Task, TaskStats } from "../types"
 
 /**
  * Derives board-wide completion stats from the full task list.

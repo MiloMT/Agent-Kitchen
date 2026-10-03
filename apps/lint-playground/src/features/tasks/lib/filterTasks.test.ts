@@ -1,5 +1,5 @@
 import { filterTasks } from "./filterTasks"
-import type { Task } from "./types"
+import type { Task } from "../types"
 
 const task = (id: string, done: boolean): Task => ({
   id,

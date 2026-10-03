@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event"
 import { fireEvent } from "@testing-library/react"
 
 import { TaskCard } from "./TaskCard"
-import type { Task } from "../lib"
+import type { Task } from "../types"
 
 const makeTask = (overrides: Partial<Task> = {}): Task => ({
   id: "t1",

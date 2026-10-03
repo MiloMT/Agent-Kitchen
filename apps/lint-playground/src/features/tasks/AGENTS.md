@@ -36,8 +36,15 @@ components, route page) that future features are expected to imitate.
 
 ## Folder layout (this feature)
 
+- `types.ts` — **feature contract**: the domain-restricted types (`Task`,
+  `Priority`, `TaskFilter`, `TaskStats`, `NewTaskInput`). The single source
+  of truth for the domain model, consumed by every layer and re-exported
+  through the public API. Read this first to understand the domain.
+- `constants.ts` — **feature contract**: domain-restricted constants and
+  mappings (`PRIORITIES`, `PRIORITY_LABELS`, `PRIORITY_BADGE_VARIANTS`,
+  `FILTERS`). The one place where business values meet UI concerns.
 - `lib/` — **functional core**: pure business rules only (`createTask`,
-  `filterTasks`, `calculateTaskStats`, domain types). No React, no DOM,
+  `filterTasks`, `calculateTaskStats`). No React, no DOM,
   no I/O, no mutation. Enforced by ESLint (`src/features/**/lib/**` block
   in `eslint.config.js`).
 - `hooks/` — **imperative shell**: `useTasks` owns React state and I/O

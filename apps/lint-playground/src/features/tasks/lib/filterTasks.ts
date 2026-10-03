@@ -1,4 +1,4 @@
-import type { Task, TaskFilter } from "./types"
+import type { Task, TaskFilter } from "../types"
 
 /**
  * Returns the subset of tasks visible under the given board filter.

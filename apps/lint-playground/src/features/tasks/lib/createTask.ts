@@ -1,4 +1,4 @@
-import type { NewTaskInput, Task } from "./types"
+import type { NewTaskInput, Task } from "../types"
 
 export interface CreateTaskContext {
   readonly id: string
