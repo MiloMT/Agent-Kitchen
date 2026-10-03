@@ -1,2 +1,2 @@
 export { router } from "./router"
-export { RootLayout } from "./root-layout"
+export { RootLayout } from "./RootLayout"

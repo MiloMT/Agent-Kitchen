@@ -20,8 +20,8 @@ import {
 } from "miloberry"
 import { Plus } from "lucide-react"
 
-import { PRIORITIES, PRIORITY_LABELS } from "./constants"
-import type { NewTaskInput, Priority } from "./domain"
+import { PRIORITIES, PRIORITY_LABELS } from "../constants"
+import type { NewTaskInput, Priority } from "../lib"
 
 export interface AddTaskDialogProps {
   onAdd: (input: NewTaskInput) => void

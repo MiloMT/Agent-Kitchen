@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from "react"
 
-import { calculateTaskStats, createTask, filterTasks } from "./domain"
-import type { NewTaskInput, Task, TaskFilter, TaskStats } from "./domain"
+import { calculateTaskStats, createTask, filterTasks } from "../lib"
+import type { NewTaskInput, Task, TaskFilter, TaskStats } from "../lib"
 
 const createId = (): string => {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
@@ -46,10 +46,6 @@ export interface UseTasksResult {
   readonly stats: TaskStats
 }
 
-/**
- * Imperative shell: owns state and I/O (ids, clock), delegates all business
- * rules to the pure functions in ./domain.
- */
 export function useTasks(): UseTasksResult {
   const [tasks, setTasks] = useState<readonly Task[]>(SEED_TASKS)
   const [filter, setFilter] = useState<TaskFilter>("all")

@@ -12,8 +12,8 @@ import {
 import { Trash2 } from "lucide-react"
 import type { ReactElement } from "react"
 
-import { PRIORITY_BADGE_VARIANTS, PRIORITY_LABELS } from "./constants"
-import type { Task } from "./domain/types"
+import { PRIORITY_BADGE_VARIANTS, PRIORITY_LABELS } from "../constants"
+import type { Task } from "../lib"
 
 export interface TaskCardProps {
   task: Task

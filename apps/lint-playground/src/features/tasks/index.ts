@@ -1,7 +1,7 @@
-export { AddTaskDialog } from "./add-task-dialog"
-export { TaskBoard } from "./task-board"
-export { TaskBoardPage } from "./task-board-page"
-export { useTasks } from "./use-tasks"
+export { AddTaskDialog } from "./components/AddTaskDialog"
+export { TaskBoard } from "./components/TaskBoard"
+export { TaskBoardPage } from "./components/TaskBoardPage"
+export { useTasks } from "./hooks/useTasks"
 export type {
   CreateTaskContext,
   NewTaskInput,
@@ -9,4 +9,4 @@ export type {
   Task,
   TaskFilter,
   TaskStats,
-} from "./domain"
+} from "./lib"

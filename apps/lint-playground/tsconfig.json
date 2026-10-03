@@ -22,5 +22,5 @@
       "@/*": ["./src/*", "../../libs/Miloberry/src/*"]
     }
   },
-  "include": ["src", "vite.config.ts", "eslint.config.js"]
+  "include": ["src", "vite.config.ts", "eslint.config.js", "jest.config.ts", "jest.setup.ts"]
 }

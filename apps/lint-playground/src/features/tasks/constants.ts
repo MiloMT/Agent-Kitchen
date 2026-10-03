@@ -1,4 +1,4 @@
-import type { Priority, TaskFilter } from "./domain/types"
+import type { Priority, TaskFilter } from "./lib/types"
 
 export const PRIORITIES: readonly Priority[] = ["low", "medium", "high"]
 

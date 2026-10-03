@@ -2,7 +2,7 @@ import type { ReactElement } from "react"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "miloberry"
 
-import { TaskBoard } from "./task-board"
+import { TaskBoard } from "./TaskBoard"
 
 export function TaskBoardPage(): ReactElement {
   return (

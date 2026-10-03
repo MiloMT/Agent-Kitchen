@@ -1,9 +1,6 @@
 import { Outlet } from "react-router"
 import type { ReactElement } from "react"
 
-/**
- * App chrome shared by every route. Pure layout — no data fetching, no state.
- */
 export function RootLayout(): ReactElement {
   return (
     <main className="mx-auto flex min-h-dvh max-w-5xl flex-col gap-6 p-6">

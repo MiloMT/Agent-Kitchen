@@ -15,11 +15,11 @@ import {
 import { ListTodo } from "lucide-react"
 import type { ReactElement } from "react"
 
-import { AddTaskDialog } from "./add-task-dialog"
-import { FILTERS } from "./constants"
-import { TaskCard } from "./task-card"
-import { useTasks } from "./use-tasks"
-import type { TaskFilter } from "./domain"
+import { AddTaskDialog } from "./AddTaskDialog"
+import { FILTERS } from "../constants"
+import { TaskCard } from "./TaskCard"
+import { useTasks } from "../hooks/useTasks"
+import type { TaskFilter } from "../lib"
 
 export function TaskBoard(): ReactElement {
   const { tasks, filter, setFilter, addTask, toggleTask, removeTask, stats } = useTasks()

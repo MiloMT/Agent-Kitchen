@@ -1,14 +1,14 @@
 import type { NewTaskInput, Task } from "./types"
 
-/**
- * Non-deterministic inputs (ids, timestamps) are injected by the shell so
- * this function stays pure and testable.
- */
 export interface CreateTaskContext {
   readonly id: string
   readonly now: number
 }
 
+/**
+ * Creates a new, incomplete task from validated input.
+ * Non-determinism (identity, timestamp) is supplied via the context.
+ */
 export function createTask(input: NewTaskInput, context: CreateTaskContext): Task {
   return {
     id: context.id,

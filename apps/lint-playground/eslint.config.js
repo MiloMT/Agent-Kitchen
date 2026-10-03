@@ -4,28 +4,9 @@ import globals from "globals"
 import reactHooks from "eslint-plugin-react-hooks"
 import reactRefresh from "eslint-plugin-react-refresh"
 import functional from "eslint-plugin-functional"
+import checkFile from "eslint-plugin-check-file"
 import tseslint from "typescript-eslint"
 
-/**
- * Flat config for ESLint 9+ (the current config system).
- *
- * This is the *starting point* for a locked-down linting setup. The layers:
- *
- *   1. js.configs.recommended        — baseline JS rules
- *   2. tseslint strictTypeChecked    — type-aware TS rules (strictest preset)
- *   3. react-hooks recommended       — Rules of Hooks enforcement
- *   4. project-specific rule layers  — the "house style" enforcement
- *
- * Candidate plugins for the next iteration of heavy enforcement:
- *   - eslint-plugin-import-x        — import order, no cycles, first-party vs 3rd-party groups
- *   - eslint-plugin-boundaries      — enforce the feature folder architecture
- *   - @tanstack/eslint-plugin-query — when server state is introduced
- *
- * Architecture: Functional Core, Imperative Shell (see AGENTS.md).
- *   - "Functional core"   → src/**\/domain/** — pure business rules only
- *   - "Imperative shell"  → everything else (routes, hooks, components)
- * The functional core is enforced by the dedicated config block at the bottom.
- */
 export default tseslint.config(
   { ignores: ["dist"] },
   {
@@ -44,11 +25,9 @@ export default tseslint.config(
       "react-refresh": reactRefresh,
     },
     rules: {
-      // React
       ...reactHooks.configs.recommended.rules,
       "react-refresh/only-export-components": "warn",
 
-      // TypeScript: strictness baseline
       "@typescript-eslint/no-unused-vars": [
         "error",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
@@ -62,9 +41,6 @@ export default tseslint.config(
         "error",
         { allowExpressions: true },
       ],
-
-      // Architecture: consume features through their public API (index.ts) only.
-      // Intra-feature imports must be relative; cross-feature imports go via the barrel.
       "no-restricted-imports": [
         "error",
         {
@@ -79,20 +55,14 @@ export default tseslint.config(
     },
   },
   {
-    // Config/build files don't run in the browser and don't need type-aware rules.
     files: ["*.config.js", "*.config.ts"],
     extends: [js.configs.recommended],
     languageOptions: { globals: { ...globals.browser, ...globals.node } },
   },
   {
-    // ---------------------------------------------------------------------
-    // Functional Core: src/**/domain/** must be pure business logic.
-    // No React, no DOM, no I/O, no mutation. See AGENTS.md.
-    // ---------------------------------------------------------------------
-    files: ["src/**/domain/**"],
+    files: ["src/features/**/lib/**"],
     plugins: { functional },
     rules: {
-      // Immutability & purity
       "functional/no-let": "error",
       "functional/immutable-data": "error",
       "functional/prefer-immutable-types": [
@@ -109,8 +79,6 @@ export default tseslint.config(
       "functional/no-throw-statements": "error",
       "functional/no-try-statements": "error",
       "functional/no-promise-reject": "error",
-
-      // No side-effect channels: no React, no UI libs, no browser globals.
       "no-restricted-imports": [
         "error",
         {
@@ -129,6 +97,29 @@ export default tseslint.config(
         { name: "localStorage", message: "The functional core must not perform I/O." },
         { name: "fetch", message: "The functional core must not perform I/O." },
         { name: "console", message: "The functional core must not log; return values instead." },
+      ],
+    },
+  },
+  {
+    files: ["src/**/*.{ts,tsx}"],
+    ignores: ["src/App.tsx", "src/routes/RootLayout.tsx", "src/vite-env.d.ts"],
+    plugins: { "check-file": checkFile },
+    rules: {
+      "check-file/filename-naming-convention": [
+        "error",
+        { "**/*.ts": "CAMEL_CASE", "**/*.tsx": "CAMEL_CASE" },
+        { ignoreMiddleExtensions: true },
+      ],
+    },
+  },
+  {
+    files: ["src/features/**/components/**"],
+    plugins: { "check-file": checkFile },
+    rules: {
+      "check-file/filename-naming-convention": [
+        "error",
+        { "**/*.ts": "CAMEL_CASE", "**/*.tsx": "PASCAL_CASE" },
+        { ignoreMiddleExtensions: true },
       ],
     },
   },
